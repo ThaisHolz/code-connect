@@ -14,6 +14,49 @@
 </head>
 
 <body>
+    <div id="root"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/19.0.0/cjs/react.production.min.js" integrity="sha512-nU+Ng6Lv1UThPJ9vMtDIEfW0pNWLZQsRwh0cCl3WJHjReVWnxLEWSY/esU9/v1iBsfoe0Y71xwOcpoVrhNcU4Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/19.0.0/cjs/react-dom.production.min.js" integrity="sha512-HsacWC3FRZDrKozFe9L5QEh3BA5ID0ErNLJen5rAR9TmZCJxIjHeC+E/2X8uKFbkbCtyMFJ3jnHH7DHr7fWRJg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.26.4/babel.min.js" integrity="sha512-hX7KzoYtNHhNJsz8TAHyddcegokOwhmYiFWCDHqFkcoNVsYwCziO+NISSRlNKpfOYaqyQxm2+MTCJqSaHssJTA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script type="text/babel">
+        function Titulo(){
+            return (
+                <h1 className='form__titulo'>Login</h1>
+            )
+        }
+
+        function Subtitulo(){
+            return (
+                <h2 className='form__texto'>Boas vindas! Faça seu login.</h2>
+            )
+        }
+
+        function PaginaLogin(){
+            return (
+                <div className='container-login'>
+                    <img src='./img/imagem-login.png' alt='Uma mulher negra de cabelos crespos e óculos de grau utilizando um computador, também há o logo da codeconnect.'></img>
+                    <section>
+                        <form action="">
+                            <Titulo />
+                            <Subtitulo />
+                            <div className='form__campo-digitacao'>
+                                <label for='email'>E-mail ou usuário</label>
+                                <input type="email" placeholder='Digite seu e-mail ou usuário' required id='email'/>
+                            </div>
+                            <div className='form__campo-digitacao'>
+                                <label for="senha">Senha</label>
+                                <input type="password" placeholder='Digite sua senha' required id='senha'/>
+                            </div>
+                        </form>
+                    </section>
+                </div>
+            )
+        }
+
+        ReactDOM.createRoot(document.getElementById('root')).render(<PaginaLogin />);
+    </script>
 
 </body>
 
