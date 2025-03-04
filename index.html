@@ -33,6 +33,22 @@
             )
         }
 
+        //Utilizando props para reutilizar o código
+        function CampoDeDigitacao({Label, tipo, placeholder}){
+            return(
+                <div className='form__campo-digitacao'>
+                    <label for='email'>{Label}</label>
+                    <input type={tipo} placeholder={placeholder} required id='email'/>
+                </div>
+            )
+        }
+
+        function Botao(){
+            return(
+                <button type='submit' className='form__botao'>Login</button>
+            )
+        }
+        
         function PaginaLogin(){
             return (
                 <div className='container-login'>
@@ -41,14 +57,9 @@
                         <form action="">
                             <Titulo />
                             <Subtitulo />
-                            <div className='form__campo-digitacao'>
-                                <label for='email'>E-mail ou usuário</label>
-                                <input type="email" placeholder='Digite seu e-mail ou usuário' required id='email'/>
-                            </div>
-                            <div className='form__campo-digitacao'>
-                                <label for="senha">Senha</label>
-                                <input type="password" placeholder='Digite sua senha' required id='senha'/>
-                            </div>
+                            <CampoDeDigitacao Label='E-mail ou usuário' tipo='email' placeholder='Digite seu e-mail ou usuário'/>
+                            <CampoDeDigitacao Label='Senha' tipo='password' placeholder='Digite sua senha.'/>
+                            <Botao />
                         </form>
                     </section>
                 </div>
