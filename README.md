@@ -1,6 +1,10 @@
 
 ![Capa do repositório do curso, contendo no canto superior esquerdo o símbolo do github com o texto /alura-cursos, e no direito o logo da alura. Abaixo possuímos o título React: componentes e JSX com o subtítulo aprendendo a construir componentes reutilizáveis. Por fim, no canto inferior direito, há o logo da escola de front-end.](https://imgur.com/n21Gypa.png)
 
+<a href="https://thaisholz.github.io/code-connect/">Clique para ver o projeto.</a>
+
+**Thais Coelho**
+
 # CodeConnect
 
 Rede social para pessoas desenvolvedoras chamada CodeConnect para o curso de React: componentes e JSX.

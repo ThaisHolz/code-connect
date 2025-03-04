@@ -44,11 +44,13 @@
         }
 
         //Utilizando props para reutilizar o código
-        function CampoDeDigitacao({Label, tipo, placeholder}){
+        function CampoDeDigitacao({Label, tipo, placeholder, value, setValor}){
             return(
                 <div className='form__campo-digitacao'>
-                    <label for='email'>{Label}</label>
-                    <input type={tipo} placeholder={placeholder} required id='email'/>
+                    <label for={tipo}>{Label}</label>
+                    <input type={tipo} placeholder={placeholder} 
+                        required id={tipo}
+                        value={value} onChange={(evento) => setValor(evento.target.value)}/> 
                 </div>
             )
         }
@@ -59,18 +61,85 @@
             )
         }
         
+        function CheckBox(){
+            return(
+                //<> == FRAGMENTOS ou seja substitui uma div como pai do elemento
+                <> 
+                <div className='form__campo-checkbox'>
+                    <input type='checkbox' id='lembrar' />
+                    <label for='lembrar' />
+                </div>
+                <p className='form__opcoes-texto'>Lembrar-me</p>
+                </>
+            )
+        }
+        
+        function Texto({classe, children}){
+            return(
+                <p className={classe}>{children}</p>
+            )
+        }
+
+        function IconeRedesSociais({link, nome}){
+            return(
+                //Deixando a tag img flexivel para mudanças de imagens e textos
+                <li>
+                    <a href={link}> 
+                        <img src={`./img/${nome}.svg`} alt={`ícone do ${nome}`} />
+                        {nome}
+                    </a>
+                </li>
+            )
+        }
+
+        function Link({children}){
+            return(
+                <a href='#' className='container-links__link'>{children}</a>
+            )
+        }
+
         function PaginaLogin(){
+            //Variaveis que permitem o usuário digitar seu email e senha usando estado
+            const [email, setEmail] = React.useState(''); 
+            const [senha, setSenha] = React.useState('');
+
+            //Função de evento para envio de formulario
+            const handleSubmit = (event) => {
+                event.preventDefault();
+                console.log('email' + email);
+                console.log('senha' + senha);
+            }
+            
             return (
                 <div className='container-login'>
                     <img src='./img/imagem-login.png' alt='Uma mulher negra de cabelos crespos e óculos de grau utilizando um computador, também há o logo da codeconnect.'></img>
                     <section>
-                        <form action="">
+                        <form onSubmit={handleSubmit}>
                             <Titulo>Login</Titulo>
-                            <Subtitulo>Boas vindas! Faça seu login.</Subtitulo>
-                            <CampoDeDigitacao Label='E-mail ou usuário' tipo='email' placeholder='Digite seu e-mail ou usuário'/>
-                            <CampoDeDigitacao Label='Senha' tipo='password' placeholder='Digite sua senha.'/>
+                            <Subtitulo>Boas-vindas! Faça seu login.</Subtitulo>
+                            <CampoDeDigitacao Label='E-mail ou usuário' 
+                                tipo='email' placeholder='Digite seu e-mail ou usuário' 
+                                value={email} setValor={setEmail}/>
+                            <CampoDeDigitacao Label='Senha' tipo='password' 
+                                placeholder='Digite sua senha.' valeu={senha}
+                                setValor={setSenha}/>
+                            <fieldset className='form__opcoes'>
+                                <CheckBox />
+                                <p>
+                                    <a href='#' aria-label='Recuperar senha esquecida.'>Esqueci a senha</a>
+                                </p>
+                            </fieldset>
                             <Botao>Login</Botao>
                         </form>
+                        <div className='container-links'>
+                            <Texto classe='container-links__titulo'>ou entre com outras contas</Texto>
+                            <ul>
+                                <IconeRedesSociais link='https://www.github.com' nome='GitHub' />
+                                <IconeRedesSociais link='https://www.google.com/' nome='Google'/>
+                            </ul>
+                            <Texto classe='container-links__texto'>Ainda não tem conta?</Texto>
+                            <Link>Crie seu cadastro!</Link>
+                        </div>
                     </section>
                 </div>
             )
