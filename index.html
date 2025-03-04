@@ -16,20 +16,30 @@
 <body>
     <div id="root"></div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/19.0.0/cjs/react.production.min.js" integrity="sha512-nU+Ng6Lv1UThPJ9vMtDIEfW0pNWLZQsRwh0cCl3WJHjReVWnxLEWSY/esU9/v1iBsfoe0Y71xwOcpoVrhNcU4Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/19.0.0/cjs/react-dom.production.min.js" integrity="sha512-HsacWC3FRZDrKozFe9L5QEh3BA5ID0ErNLJen5rAR9TmZCJxIjHeC+E/2X8uKFbkbCtyMFJ3jnHH7DHr7fWRJg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.26.4/babel.min.js" integrity="sha512-hX7KzoYtNHhNJsz8TAHyddcegokOwhmYiFWCDHqFkcoNVsYwCziO+NISSRlNKpfOYaqyQxm2+MTCJqSaHssJTA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"
+        integrity="sha512-8Q6Y9XnTbOE+JNvjBQwJ2H8S+UV4uA6hiRykhdtIyDYZ2TprdNmWOUaKdGzOhyr4dCyk287OejbPvwl7lrfqrQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"
+        integrity="sha512-MOCpqoRoisCTwJ8vQQiciZv0qcpROCidek3GTFS6KTk2+y7munJIlKCVkFCYY+p3ErYFXCjmFjnfTTRSC1OHWQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.3/babel.min.js"
+        integrity="sha512-MIXku7j6pJ0hqd2T4WXZMGerp3BU9B91rfLRDp/McDBNNdnwTD+yLJaz9AHcYXT6k16dYTkG9S2KRPGxaBIfBQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    </script>
 
     <script type="text/babel">
-        function Titulo(){
+        //children é usado dentro de um componente (linha 59)
+        function Titulo({children}){
             return (
-                <h1 className='form__titulo'>Login</h1>
+                <h1 className='form__titulo'>{children}</h1>
             )
         }
 
-        function Subtitulo(){
+        function Subtitulo({children}){
             return (
-                <h2 className='form__texto'>Boas vindas! Faça seu login.</h2>
+                <h2 className='form__texto'>{children}</h2>
             )
         }
 
@@ -43,9 +53,9 @@
             )
         }
 
-        function Botao(){
+        function Botao({children}){
             return(
-                <button type='submit' className='form__botao'>Login</button>
+                <button type='submit' className='form__botao'>{children}</button>
             )
         }
         
@@ -55,11 +65,11 @@
                     <img src='./img/imagem-login.png' alt='Uma mulher negra de cabelos crespos e óculos de grau utilizando um computador, também há o logo da codeconnect.'></img>
                     <section>
                         <form action="">
-                            <Titulo />
-                            <Subtitulo />
+                            <Titulo>Login</Titulo>
+                            <Subtitulo>Boas vindas! Faça seu login.</Subtitulo>
                             <CampoDeDigitacao Label='E-mail ou usuário' tipo='email' placeholder='Digite seu e-mail ou usuário'/>
                             <CampoDeDigitacao Label='Senha' tipo='password' placeholder='Digite sua senha.'/>
-                            <Botao />
+                            <Botao>Login</Botao>
                         </form>
                     </section>
                 </div>
