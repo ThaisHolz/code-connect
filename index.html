@@ -30,6 +30,8 @@
     </script>
 
     <script type="text/babel">
+        
+        //COMPONENTES CRIADOS PARA USO DINÂMICO
         //children é usado dentro de um componente (linha 59)
         function Titulo({children}){
             return (
@@ -116,7 +118,7 @@
                     <section>
                         <form onSubmit={handleSubmit}>
                             <Titulo>Login</Titulo>
-                            <Subtitulo>Boas-vindas! Faça seu login.</Subtitulo>
+                            <Subtitulo>Boasvindas! Faça seu login.</Subtitulo>
                             <CampoDeDigitacao Label='E-mail ou usuário' 
                                 tipo='email' placeholder='Digite seu e-mail ou usuário' 
                                 value={email} setValor={setEmail}/>
